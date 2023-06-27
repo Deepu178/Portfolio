@@ -1,8 +1,10 @@
 import React from "react";
+import { Home } from "./pages/Home";
 
 function App() {
   return (
-    <div className="text-3xl text-bold">Hello world
+    <div>
+      <Home />
     </div>
   );
 }
