@@ -1,59 +1,202 @@
-import React from 'react'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+
+const navigation = [
+  { id: 1, label: "Home", href: "/" },
+  { id: 1, label: "Projects", href: "/projects" },
+  { id: 1, label: "About", href: "/about" },
+  { id: 1, label: "Contact", href: "/contact" },
+];
 
 export const Navbar = () => {
+    const [expanded, setExpanded] = useState(false); // Add state variable
+
   return (
-   <header className="pb-6 bg-white lg:pb-0">
-    <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <nav className="flex items-center justify-between h-16 lg:h-20">
-            <div className="flex-shrink-0">
-            <a href="#" title="" className="flex text-2xl font-bold">
-              React Projects
-                    {/* <img className="w-auto h-8 lg:h-10" src="https://cdn.rareblocks.xyz/collection/celebration/images/logo.svg" alt="" /> */}
-                </a>
+    <div>
+      {/* Header */}
+      <header className="py-4 bg-black sm:py-6">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between">
+            <div className="shrink-0">
+              <a href="#" title="" className="flex">
+                <img
+                  className="w-auto h-9"
+                  src="https://landingfoliocom.imgix.net/store/collection/dusk/images/logo.svg"
+                  alt=""
+                />
+              </a>
             </div>
 
-            <button type="button" className="inline-flex p-2 text-black transition-all duration-200 rounded-md lg:hidden focus:bg-gray-100 hover:bg-gray-100">
-                <svg className="block w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path  d="M4 8h16M4 16h16" />
-                </svg>
+            <div className="flex md:hidden">
+              <button
+                type="button"
+                className="text-white"
+                onClick={() => setExpanded(!expanded)}
+                aria-expanded={expanded}
+              >
+                <span
+                  style={{ display: !expanded ? "block" : "none" }}
+                  aria-hidden="true"
+                >
+                  <svg
+                    className="w-7 h-7"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                </span>
 
-                <svg className="hidden w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-
-            <div className="hidden lg:flex lg:items-center lg:ml-auto lg:space-x-10">
-                <a href="#" title="" className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Features </a>
-
-                <a href="#" title="" className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Solutions </a>
-
-                <a href="#" title="" className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Resources </a>
-
-                <a href="#" title="" className="text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Pricing </a>
+                <span
+                  style={{ display: expanded ? "block" : "none" }}
+                  aria-hidden="true"
+                >
+                  <svg
+                    className="w-7 h-7"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </span>
+              </button>
             </div>
 
-            <a href="#" title="" className="items-center justify-center hidden px-4 py-3 ml-10 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md lg:inline-flex hover:bg-blue-700 focus:bg-blue-700" role="button"> Get started now </a>
-        </nav>
+            <nav
+              className={`hidden md:flex md:items-center md:justify-end md:space-x-12 {
+                expanded ? "expanded" : ""
+              }`}
+            >
+              {navigation.map((item) => (
+                <Link
+                  key={item.id}
+                  href={item.href}
+                  className="text-base font-normal text-gray-400 transition-all duration-200 hover:text-white"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
 
-        <nav className="pt-4 pb-6 bg-white border border-gray-200 rounded-md shadow-md lg:hidden">
-            <div className="flow-root">
-                <div className="flex flex-col px-6 -my-2 space-y-1">
-                    <a href="#" title="" className="inline-flex py-2 text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Features </a>
+          <nav style={{ display: expanded ? "block" : "none" }}>
+            <div className="flex flex-col pt-8 pb-4 space-y-6">
+              {navigation.map((item) => (
+                <Link
+                  className="text-base font-normal text-gray-400 transition-all duration-200 hover:text-white"
+                  key={item.id}
+                  href={item.hre}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </nav>
+        </div>
+      </header>
 
-                    <a href="#" title="" className="inline-flex py-2 text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Solutions </a>
+      {/* Section */}
+      <section className="py-12 bg-black sm:pb-16 lg:pb-20 xl:pb-24">
+        <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+          <div className="relative">
+            <div className="lg:w-2/3">
+              <p className="text-sm font-normal tracking-widest text-gray-300 uppercase">
+                A Hub for Developers & Open Source Contributors
+              </p>
+              <h1 className="mt-6 text-4xl font-normal text-white sm:mt-10 sm:text-5xl lg:text-6xl xl:text-8xl">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-purple-500">
+                  Unlimited Projects
+                </span>{" "}
+                Inspiration
+              </h1>
+              <p className="max-w-lg mt-4 text-xl font-normal text-gray-400 sm:mt-8">
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                amet sint. Velit officia consequat duis enim velit mollit.
+                Exercitation veniam consequat.
+              </p>
+              <div className="relative inline-flex items-center justify-center mt-8 sm:mt-12 group">
+                <div className="absolute transition-all duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500 group-hover:shadow-lg group-hover:shadow-cyan-500/50"></div>
+                <Link
+                  href="/projects"
+                  title=""
+                  className="relative inline-flex items-center justify-center px-8 py-3 text-base font-normal text-white bg-black border border-transparent rounded-full"
+                  role="button"
+                >
+                  {" "}
+                  Start Exploring Projects{" "}
+                </Link>
+              </div>
 
-                    <a href="#" title="" className="inline-flex py-2 text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Resources </a>
+              <div>
+                <div className="inline-flex items-center pt-6 mt-8 border-t border-gray-800 sm:pt-10 sm:mt-14">
+                  <svg
+                    className="w-6 h-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    strokeWidth="1.5"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13 7H21M21 7V15M21 7L13 15L9 11L3 17"
+                      stroke="url(#a)"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <defs>
+                      <linearGradient
+                        id="a"
+                        x1="3"
+                        y1="7"
+                        x2="22.2956"
+                        y2="12.0274"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop
+                          offset="0%"
+                          style={{ stopColor: "var(--color-cyan-500)" }}
+                        />
+                        <stop
+                          offset="100%"
+                          style={{ stopColor: "var(--color-purple-500)" }}
+                        />
+                      </linearGradient>
+                    </defs>
+                  </svg>
 
-                    <a href="#" title="" className="inline-flex py-2 text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Pricing </a>
+                  <span className="ml-2 text-base font-normal text-white">
+                    {" "}
+                    10 new projects inspiration will be added this week{" "}
+                  </span>
                 </div>
+              </div>
             </div>
 
-            <div className="px-6 mt-6">
-                <a href="#" title="" className="inline-flex justify-center px-4 py-3 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md tems-center hover:bg-blue-700 focus:bg-blue-700" role="button"> Get started now </a>
+            <div className="mt-8 md:absolute md:mt-0 md:top-32 lg:top-0 md:right-0">
+              <img
+                className="w-full max-w-xs mx-auto lg:max-w-lg xl:max-w-xl"
+                src="https://landingfoliocom.imgix.net/store/collection/dusk/images/hero/1/3d-illustration.png"
+                alt=""
+              />
             </div>
-        </nav>
+          </div>
+        </div>
+      </section>
     </div>
-</header>
+  );
+};
 
-  )
-}
