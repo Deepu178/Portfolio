@@ -1,12 +1,12 @@
 import React from 'react';
-import { Projectone } from '../../components/Projects/Projectone';
-import { Navbar } from 'components/Navbar';
+import { Navbar, Projectone, Footer } from '../../components/index';
 
 export const Home = () => {
   return (
-    <div>
+    <div className='bg-black text-white'>
       <Navbar />
-          <Projectone />
+      <Projectone />
+      <Footer />
     </div>
   )
 }
