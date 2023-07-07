@@ -22,7 +22,7 @@ export const Navbar = () => {
                 title=""
                 className="flex text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 hover:from-pink-500 hover:to-yellow-500"
               >
-                Projects
+                Portfolio
               </a>
             </div>
 
