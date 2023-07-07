@@ -23,7 +23,7 @@ export const About = () => {
 
               <p className="mt-4 text-xl text-white md:mt-8">
                 <span className="relative inline-block">
-                  <span className="absolute inline-block w-full bottom-0.5 h-2 bg-yellow-300"></span>
+                  <span className="absolute inline-block w-full bottom-2 h-2 bg-yellow-300"></span>
                   <span className="relative"> Have a question? </span>
                 </span>
                 <br className="block sm:hidden" />
