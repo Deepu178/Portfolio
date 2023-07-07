@@ -8,7 +8,7 @@ const navigation = [
 ];
 
 export const Navbar = () => {
-    const [expanded, setExpanded] = useState(false); // Add state variable
+  const [expanded, setExpanded] = useState(false); // Add state variable
 
   return (
     <div>
@@ -85,7 +85,8 @@ export const Navbar = () => {
                   key={item.id}
                   href={item.href}
                   className="text-base font-normal transition-all duration-200 text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-pink-800 hover:from-yellow-500 hover:to-purple-500 hover:pb-1 hover:border-b-2 hover:borer-purple-500 "
-                >{item.label}
+                >
+                  {item.label}
                 </a>
               ))}
             </nav>
@@ -108,8 +109,6 @@ export const Navbar = () => {
       </header>
 
       {/* Section */}
-     
     </div>
   );
 };
-

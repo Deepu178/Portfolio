@@ -1,9 +1,17 @@
-import React from 'react';
-import { Navbar, Hero, Opensource, Personal, Freelance, Projectone, Footer } from '../../components/index';
+import React from "react";
+import {
+  Navbar,
+  Hero,
+  Opensource,
+  Personal,
+  Freelance,
+  Projectone,
+  Footer,
+} from "../../components/index";
 
 export const Home = () => {
   return (
-    <div className='bg-black text-white'>
+    <div className="bg-black text-white">
       <Navbar />
       <Hero />
       <Opensource />
@@ -12,5 +20,5 @@ export const Home = () => {
       <Projectone />
       <Footer />
     </div>
-  )
-}
+  );
+};

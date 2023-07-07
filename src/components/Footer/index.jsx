@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export const Footer = () => {
   return (
@@ -286,4 +286,4 @@ export const Footer = () => {
       </section>
     </div>
   );
-}
+};

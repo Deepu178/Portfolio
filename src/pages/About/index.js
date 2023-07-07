@@ -1,7 +1,7 @@
-import React from 'react';
-import Profiles from '../../assets/second.png';
-import { Footer } from '../../components/index';
-import { Navbar } from '../../components/index';
+import React from "react";
+import Profiles from "../../assets/second.png";
+import { Footer } from "../../components/index";
+import { Navbar } from "../../components/index";
 
 export const About = () => {
   return (
@@ -57,4 +57,4 @@ export const About = () => {
       <Footer />
     </div>
   );
-}
+};

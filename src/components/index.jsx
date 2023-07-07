@@ -8,12 +8,12 @@ import { Footer } from "./Footer/index";
 import { Contact } from "./Contact/index";
 
 export {
-    Navbar,
-    Hero,
-    Opensource,
-    Personal,
-    Freelance,
-    Projectone,
-    Contact,
-    Footer
-}
+  Navbar,
+  Hero,
+  Opensource,
+  Personal,
+  Freelance,
+  Projectone,
+  Contact,
+  Footer,
+};

@@ -1,6 +1,6 @@
 import React from "react";
 import { Home, About, Contacts, Projects } from "./pages/index";
-import {BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
@@ -11,7 +11,6 @@ function App() {
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/projects" element={<Projects />} />
       </Routes>
-
     </BrowserRouter>
   );
 }
